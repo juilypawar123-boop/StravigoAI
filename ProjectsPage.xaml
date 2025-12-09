@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.ProjectsPage"
+             Title="Projects"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+            
+            <Frame BackgroundColor="#1E2A38" Padding="20" CornerRadius="12">
+                <VerticalStackLayout>
+                    <Label Text="Projects Overview" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Track project progress, status, and team assignments." FontSize="16" TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center"> 
+
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10" BorderColor="Black">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Active Projects" FontAttributes="Bold" TextColor="White" />
+                        <Label x:Name="ActiveProjectsLabel" Text="0" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10" BorderColor="Black">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Projects at Risk" FontAttributes="Bold" TextColor="White"/>
+                        <Label x:Name="AtRiskProjectsLabel" Text="0" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10" BorderColor="Black">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Completed Projects" FontAttributes="Bold" TextColor="White"/>
+                        <Label x:Name="CompletedProjectsLabel" Text="0" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </HorizontalStackLayout>
+            
+            <Label Text="Project List" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <VerticalStackLayout x:Name="ProjectsList" Spacing="10">
+                
+            </VerticalStackLayout>
+
+            
+            <HorizontalStackLayout Spacing="20" Margin="0,20,0,0" VerticalOptions="End" HorizontalOptions="Center">
+                <Button Text="Add New Project" BackgroundColor="#4CAF50" TextColor="White" Clicked="AddProject_Clicked"/>
+                
+                
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.InvoiceFormPage"
+             Title="Generate Invoice">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Generate New Invoice" 
+                   FontSize="24" FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
+
+            <Label Text="Project" FontAttributes="Bold"/>
+            <Picker x:Name="ProjectPicker" Title="Select Project" />
+
+            <Label Text="Include Timesheets" FontAttributes="Bold"/>
+            <CollectionView x:Name="TimesheetsCollectionView" SelectionMode="Multiple">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BorderColor="LightGray" CornerRadius="8">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Task}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Hours, StringFormat='Hours: {0}'}"/>
+                                <Label Text="{Binding Date, StringFormat='Date: {0:yyyy-MM-dd}'}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Invoice Date" FontAttributes="Bold"/>
+            <DatePicker x:Name="InvoiceDatePicker" />
+            <Label Text="Due Date" FontAttributes="Bold"/>
+            <DatePicker x:Name="DueDatePicker" />
+
+            <Label Text="Invoice Number" FontAttributes="Bold"/>
+            <Entry x:Name="InvoiceNumberEntry" Placeholder="INV-001"/>
+
+            <Label Text="Hourly Rate (£)" FontAttributes="Bold"/>
+            <Entry x:Name="HourlyRateEntry" Keyboard="Numeric" Placeholder="e.g., 50"/>
+
+            <Label Text="Task Description" />
+            <Editor x:Name="TaskDescriptionEntry" HeightRequest="80" Placeholder="Describe your task" />
+
+            <Button Text="Generate Invoice"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"
+                    Clicked="OnGenerateInvoiceClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

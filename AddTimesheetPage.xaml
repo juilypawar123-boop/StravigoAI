@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.AddTimesheetPage"
+             Title="Add Timesheet">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <Label Text="Add Timesheet Entry" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+            <Label Text="Date" />
+            <DatePicker x:Name="DatePickerEntry" />
+
+            <Label Text="Project" />
+            <Picker x:Name="ProjectPicker" Title="Select Project">
+                <Picker.Items>
+                    <x:String>Project Alpha</x:String>
+                    <x:String>Project Beta</x:String>
+                    <x:String>Project Gamma</x:String>
+                    <x:String>Project Delta</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Hours Worked" />
+            <Entry x:Name="HoursEntry" Keyboard="Numeric" Placeholder="Enter hours worked" />
+
+            <Label Text="Task Description" />
+            <Editor x:Name="TaskDescriptionEntry" HeightRequest="80" Placeholder="Describe your task" />
+
+            <Button Text="Submit Timesheet" 
+                    BackgroundColor="DodgerBlue" 
+                    TextColor="White"
+                    Clicked="OnSubmitTimesheetClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

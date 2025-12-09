@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.CreateYourAccountPage"
+             Title="Create Acccount"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Entry x:Name="NameEntry" 
+               Placeholder="Name"
+               Keyboard="Default"
+               Margin="500,100,500,10"
+               TextColor="Black"/>
+        
+        <Entry x:Name="EmailEntry"
+               Placeholder="Email"
+               Keyboard="Email" 
+               Margin="500,10,500,10"
+               TextColor="Black"/>
+        
+        <Entry x:Name="PasswordEntry"
+               Placeholder="Password"
+               Keyboard="Default" 
+               Margin="500,10,500,10"
+               TextColor="Black"/>
+        
+        <Entry x:Name="ConfirmPasswordEntry"
+               Placeholder="ConfirmPassword"
+               Keyboard="Default" 
+               Margin="500,10,500,10"
+               TextColor="Black"/>
+
+        <ImageButton x:Name="TogglePasswordButton"
+                 Grid.Column="1"
+                 Source="eye_closed.png"
+                 BackgroundColor="Transparent"
+                 Clicked="OnTogglePasswordClicked" 
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 WidthRequest="28"
+                 HeightRequest="28" />
+
+        <Button Text="Sign In"
+                Clicked="OnSignInClicked"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Margin="40,40,40,40"/>
+    
+    </VerticalStackLayout>
+</ContentPage>

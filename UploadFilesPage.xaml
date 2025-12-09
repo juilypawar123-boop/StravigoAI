@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.UploadFilesPage"
+             Title="Upload Files">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label 
+                Text="Upload Notes File"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalOptions="Center" />
+
+            <Entry x:Name="ProjectEntry" Placeholder="Project Name" />
+
+            <Label x:Name="SelectedFileLabel" Text="No file selected" />
+
+            <Button Text="Upload File"
+                    TextColor="Black"
+                    BackgroundColor="DodgerBlue"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" 
+                    Clicked="OnUploadFileClicked"/>
+
+            <Label Text="Uploaded Files:" FontAttributes="Bold" FontSize="18" Margin="0,20,0,5"/>
+            <CollectionView x:Name="FilesCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BorderColor="LightGray" CornerRadius="8">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Project}" FontAttributes="Bold"/>
+                                <Label Text="{Binding FileName}" LineBreakMode="WordWrap"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

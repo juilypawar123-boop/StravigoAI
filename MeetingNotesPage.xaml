@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.MeetingNotesPage"
+             Title="Meeting Notes"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <Label Text="Meeting Notes" FontSize="24" FontAttributes="Bold" TextColor="#2A2A3F"/>
+
+            <HorizontalStackLayout Spacing="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Button Text="New Note" 
+                        BackgroundColor="DarkSlateGray" 
+                        TextColor="White" 
+                        Clicked="NewNote_Clicked"/>
+
+                <Button Text="Upload Notes" 
+                        BackgroundColor="DarkSlateGray" 
+                        TextColor="White" 
+                        Clicked="UploadNotes_Clicked"/>
+
+                <Button x:Name="AIListenBtn" 
+                        Text="Start AI Listening"
+                        BackgroundColor="DarkSlateGray" 
+                        TextColor="White" 
+                        Clicked="AIListen_Clicked"/>
+
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout Spacing="40" Padding="5" x:Name="NotesList" Margin="0,40,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                
+                <Frame BackgroundColor="Green" Padding="10">
+                    <Label Text="Client Meeting: Discuss Q4 strategy and deliverables."
+                           TextColor="Black"/>
+                </Frame>
+
+                <Frame BackgroundColor="DodgerBlue" Padding="10">
+                    <Label Text="AI Note: Predict Q4 sales increase by 12% based on historical data." TextColor="Black"/>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="40" Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Frame BackgroundColor="Green" Padding="10">
+                    <Label Text="Internal Meeting: Review project timelines and allocations."
+                           TextColor="Black"/>
+                </Frame>
+
+                <Frame BackgroundColor="DodgerBlue" Padding="10">
+                    <Label Text="AI Note: Suggest reallocation of 2 developers to high-priority tasks." 
+                           TextColor="Black"/>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="40" Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Frame BackgroundColor="Green" Padding="10">
+                    <Label Text="Board Meeting: Present quarterly KPIs and insights."
+                           TextColor="Black" />
+                </Frame>
+
+                <Frame BackgroundColor="DodgerBlue" Padding="10">
+                    <Label Text="Meeting #02: Reviewed project milestones; design team to submit prototypes by 12/15."
+                           TextColor="Black"/>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="40" Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="Green" Padding="10">
+                    <Label Text=" XYZ Client Meeting: Analyze sprint backlog priorities."
+                           TextColor="Black"/>
+                </Frame>
+
+                <Frame BackgroundColor="DodgerBlue" Padding="10">
+                    <Label Text="Meeting #05: Budget allocation reviewed; allocate $25k to marketing campaigns."
+                           TextColor="Black"/>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="40" Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Frame BackgroundColor="Green" Padding="10">
+                    <Label Text="Meeting #02: Sync with Design Team on UI revisions." 
+                           TextColor="black"/>
+                </Frame>
+  
+                <Frame BackgroundColor="DodgerBlue" Padding="10">
+                    <Label Text="Meeting #06: Technical discussion on API performance; optimize endpoints to reduce latency by 20ms."
+                           TextColor="Black" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="40" Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Frame BackgroundColor="Green" Padding="10" HorizontalOptions="FillAndExpand">
+                    <Label Text="Technical Team Meeting: Technical review of API performance logs." 
+               TextColor="Black" />
+                </Frame>
+
+                <Frame BackgroundColor="DodgerBlue" Padding="10" HorizontalOptions="FillAndExpand">
+                    <Label Text="Meeting #09: Review of client portal usage; increase support tickets resolution time to &lt;24hrs." 
+               TextColor="Black" />
+                </Frame>
+
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

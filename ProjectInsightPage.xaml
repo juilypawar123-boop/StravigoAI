@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.ProjectInsightPage"
+             Title="Project Insights">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="18" Spacing="16">
+            <Label x:Name="ProjectTitle" FontSize="22" FontAttributes="Bold" />
+            <HorizontalStackLayout Spacing="12">
+                <Frame CornerRadius="10" Padding="12" BackgroundColor="#f2f2f2">
+                    <VerticalStackLayout>
+                        <Label Text="Progress" FontAttributes="Bold" FontSize="12"/>
+                        <ProgressBar x:Name="ProgressBarControl" WidthRequest="200" HeightRequest="14"/>
+                        <Label x:Name="ProgressLabel" FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Padding="12" BackgroundColor="#f2f2f2">
+                    <VerticalStackLayout>
+                        <Label Text="Risk Score" FontAttributes="Bold" FontSize="12"/>
+                        <Label x:Name="RiskScoreLabel" FontSize="18" FontAttributes="Bold"/>
+                        <Label x:Name="RiskSummaryLabel" FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Padding="12" BackgroundColor="#f2f2f2">
+                    <VerticalStackLayout>
+                        <Label Text="Budget Used" FontAttributes="Bold" FontSize="12"/>
+                        <ProgressBar x:Name="BudgetBar" WidthRequest="160" HeightRequest="14"/>
+                        <Label x:Name="BudgetLabel" FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <Label Text="Recent Weekly Hours" FontAttributes="Bold"/>
+            <HorizontalStackLayout x:Name="WeeklyBars" Spacing="6" HeightRequest="80" />
+
+            <Label Text="Recommendations" FontAttributes="Bold" />
+            <Frame CornerRadius="8" Padding="10" BackgroundColor="#fff8e1">
+                <Label x:Name="RecommendationsLabel" />
+            </Frame>
+
+            <Label Text="Timesheet Breakdown" FontAttributes="Bold" />
+            <VerticalStackLayout x:Name="TimesheetBreakdownList" Spacing="8" />
+
+            <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                <Button Text="Export Insight" Clicked="OnExportClicked"/>
+                <Button Text="Back" Clicked="OnBackClicked"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.LogOutPage"
+             Title="Log Out"
+             BackgroundColor="Black">
+
+    <VerticalStackLayout Spacing="30" Padding="40" HorizontalOptions="Center" VerticalOptions="Center">
+
+        <!-- Confirmation Message -->
+        <Label Text="Are you sure you want to log out?"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="White"/>
+
+        <!-- Buttons -->
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+            <Button Text="Yes, Log Out"
+                    BackgroundColor="Green"
+                    TextColor="Black"
+                    WidthRequest="140"
+                    Clicked="LogoutConfirmed_Clicked"/>
+
+            <Button Text="Cancel"
+                    BackgroundColor="Gray"
+                    TextColor="Black"
+                    WidthRequest="140"
+                    Clicked="CancelLogout_Clicked"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
