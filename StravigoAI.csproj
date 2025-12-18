@@ -1,0 +1,225 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>StravigoAI</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>StravigoAI</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.stravigoai</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Include="Resources\Images\stravigo_background.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\MainDashboardPages.xaml.cs">
+	    <DependentUpon>MainDashboardPages.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\MeetingNotesPage.xaml.cs">
+	    <DependentUpon>MeetingNotesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ClientPortalPage.xaml.cs">
+	    <DependentUpon>ClientPortalPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\BillingAndTimesheetsPage.xaml.cs">
+	    <DependentUpon>BillingAndTimesheetsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\GlobalAIInsightsPage.xaml.cs">
+	    <DependentUpon>GlobalAIInsightsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="App.xaml.cs">
+	    <DependentUpon>App.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\CreateYourAccountPage.xaml.cs">
+	    <DependentUpon>CreateYourAccountPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\MeetingsCalenderPage.xaml.cs">
+	    <DependentUpon>MeetingsCalenderPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\AddTimesheetPage.xaml.cs">
+	    <DependentUpon>AddTimesheetPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\InvoiceFormPage.xaml.cs">
+	    <DependentUpon>InvoiceFormPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\LogOutPage.xaml.cs">
+	    <DependentUpon>LogOutPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\TeamMemberFormPage.xaml.cs">
+	    <DependentUpon>TeamMemberFormPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ProjectInsightPage.xaml.cs">
+	    <DependentUpon>ProjectInsightPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Project RegistrationPage.xaml.cs">
+	    <DependentUpon>Project RegistrationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\TeamMembersPage.xaml.cs">
+	    <DependentUpon>TeamMembersPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\NotificationsPage.xaml.cs">
+	    <DependentUpon>NotificationsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\UploadFilesPage.xaml.cs">
+	    <DependentUpon>UploadFilesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\WriteNotesPage.xaml.cs">
+	    <DependentUpon>WriteNotesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\RequestMeetingFormPage.xaml.cs">
+	    <DependentUpon>RequestMeetingFormPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PDFViwerPage1.xaml.cs">
+	    <DependentUpon>PDFViwerPage1.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ProjectPlanTemplatesPage.xaml.cs">
+	    <DependentUpon>ProjectPlanTemplatesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ProjectsPage.xaml.cs">
+	    <DependentUpon>ProjectsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\TemplatesPage.xaml.cs">
+	    <DependentUpon>TemplatesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Services\NotificationService.xaml.cs">
+	    <DependentUpon>NotificationService.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\MainDashboardPages.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MeetingNotesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ClientPortalPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\BillingAndTimesheetsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\GlobalAIInsightsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="App.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\CreateYourAccountPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MeetingsCalenderPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\AddTimesheetPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\InvoiceFormPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\LogOutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\TeamMemberFormPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ProjectInsightPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Project RegistrationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\TeamMembersPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\NotificationsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\UploadFilesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\WriteNotesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\RequestMeetingFormPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PDFViwerPage1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ProjectPlanTemplatesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ProjectsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\TemplatesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Services\NotificationService.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>

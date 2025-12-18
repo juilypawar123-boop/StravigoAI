@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.ClientPortalPage"
+             Title="Client Portal"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <!-- Hero / Greeting -->
+            <Frame BackgroundColor="#2A2A3F" Padding="20" CornerRadius="10">
+                <VerticalStackLayout>
+                    <Label Text="Greetings, Key Patron!" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Insights, Reports &amp; Actions | All in one place" FontSize="16" TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Quick KPI Cards -->
+            <HorizontalStackLayout Spacing="15">
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10"> 
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Projects On Track" FontAttributes="Bold" TextColor="White"/>
+                        <Label Text="8" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Revenue (£k)" FontAttributes="Bold" TextColor="White"/>
+                        <Label Text="120" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Tasks Completed" FontAttributes="Bold" TextColor="White"/>
+                        <Label Text="34" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Projects Overview -->
+            <Label Text="Active Projects" FontSize="20" FontAttributes="Bold" TextColor="#2A2A3F"/>
+            <VerticalStackLayout Spacing="10">
+                <Frame BackgroundColor="#E0E0E0" Padding="10" CornerRadius="10">
+                    <Label Text="Project X: Q4 Strategy Implementation — Status: On Track"/>
+                </Frame>
+                <Frame BackgroundColor="#E0E0E0" Padding="10" CornerRadius="10">
+                    <Label Text="Project Y: Marketing Campaign — Status: Delayed"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- AI Insights Section -->
+            <Label Text="AI-Generated Insights" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <VerticalStackLayout Spacing="10">
+                <Frame BackgroundColor="#D1C4E9" Padding="10" CornerRadius="10">
+                    <Label Text="Revenue is expected to grow 8% next quarter based on current trends."/>
+                </Frame>
+                <Frame BackgroundColor="#D1C4E9" Padding="10" CornerRadius="10">
+                    <Label Text="Project X may require additional resources to meet deadlines."/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Meeting Notes Section -->
+            <Label Text="Meeting Notes" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <VerticalStackLayout Spacing="10">
+                <Frame BackgroundColor="#E0E0E0" Padding="10" CornerRadius="10">
+                    <Label Text="Client requested changes to Q4 project plan. Action items assigned."/>
+                </Frame>
+                <Frame BackgroundColor="#E0E0E0" Padding="10" CornerRadius="10">
+                    <Label Text="Marketing strategy for Client Y reviewed. Follow-up scheduled next week."/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Quick Action Buttons -->
+            <HorizontalStackLayout Spacing="15" Margin="0,20,0,0">
+                <Button Text="Request Meeting" BackgroundColor="#4CAF50" TextColor="White" Clicked="RequestMeeting_Clicked" HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

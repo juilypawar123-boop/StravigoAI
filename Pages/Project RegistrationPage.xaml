@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.ProjectRegistrationPage"
+             Title="Project Registration">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+        <Label
+            Text="Add your projects here!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontAttributes="Bold"/>
+
+        <Entry x:Name="ProjectNameEntry" Placeholder="Enter Project Name Here" HeightRequest="80" />
+        <Editor x:Name="ProjectObjectives" Placeholder="Enter Project Objectives Here" HeightRequest="80" />
+        <Editor x:Name="ProjectGoal" Placeholder="Enter Project Goals Here" HeightRequest="80" />
+        <Editor x:Name="Challenges" Placeholder="Mnetioned Challenges" HeightRequest="80" />
+        <Entry x:Name="TeamMemberAssigned" Placeholder="Assign a Team Member" HeightRequest="80" />
+        <Entry x:Name="ReportingManager" Placeholder="Reporting Manager Name" HeightRequest="80" />
+
+        <Label Text="Start Date"/>
+        <DatePicker x:Name="StartDatePicker"/>
+
+        <Label Text="End Date"/>
+        <DatePicker x:Name="EndDatePicker"/>
+
+        <Label Text="Deadline"/>
+        <DatePicker x:Name="DeadlinePicker"/>
+
+        <Entry x:Name="SoftwareSupport" Placeholder="Enter Software name here" HeightRequest="80" />
+        <Entry x:Name="ProjectBudget" Placeholder="Edit Project Budget" HeightRequest="80" />
+        <Editor x:Name="ClientExpectations" Placeholder="Mention Client Expectations" HeightRequest="80" />
+        <Entry x:Name="PointofContacttoClientName" Placeholder="POC Name" HeightRequest="80" />
+        <Entry x:Name="PointofContacttoClientEmail" Placeholder="POC Email" HeightRequest="80" Keyboard="Email"/>
+        <Editor x:Name="ClientConfidentialityrequirements" Placeholder="NDAs / sensitive info handling" HeightRequest="80" />
+
+        <Picker x:Name="ReportingFrequencyPicker"
+                    Title="Client reporting frequency">
+           <Picker.Items>
+                <x:String>Daily</x:String>
+                <x:String>Weekly</x:String>
+                <x:String>Milestone-based</x:String>
+           </Picker.Items>
+        </Picker>
+
+            <Editor x:Name="EscalationProtocolEditor" Placeholder="Escalation Protocol" HeightRequest="80"/>
+            <Editor x:Name="KeyPerformanceIndicator" Placeholder="KPI" HeightRequest="80" />
+            <Editor x:Name="QualityStandards" Placeholder="Enter Project Goals Here" HeightRequest="80" />
+
+        <Button Text="Save Project"
+                TextColor="Black"
+                Background="DodgerBlue"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="OnSaveProject_Clicked"/>
+
+    </VerticalStackLayout>
+        
+  </ScrollView>
+</ContentPage>

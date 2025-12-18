@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.BillingAndTimesheetsPage"
+             Title="Billing &amp; Timesheets"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <!-- Hero / Greeting -->
+            <Frame BackgroundColor="#1E2A38" Padding="20" CornerRadius="12">
+                <VerticalStackLayout>
+                    <Label Text="Billing &amp; Timesheets Overview" 
+                           FontSize="20" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Monitor hours, invoices, and project utilization in one place." 
+                           FontSize="16" TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- KPI Cards -->
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" VerticalOptions="Center">
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10" BorderColor="White">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Total Hours" FontAttributes="Bold" TextColor="White"/>
+                        <Label x:Name="HoursLabel" Text="0" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10" BorderColor="white">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Billable (£)" FontAttributes="Bold" TextColor="White"/>
+                        <Label x:Name="BillableLabel" Text="0" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame BackgroundColor="DarkSlateGray" WidthRequest="150" HeightRequest="100" CornerRadius="10" BorderColor="white">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Pending Invoices" FontAttributes="Bold" TextColor="White"/>
+                        <Label x:Name="PendingInvoicesLabel" Text="0" FontSize="20" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Timesheets Section -->
+            <Label Text="Timesheets" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <VerticalStackLayout x:Name="TimesheetsList" Spacing="10">
+                <!-- Placeholder for dynamic timesheet entries -->
+            </VerticalStackLayout>
+
+            <!-- Billing / Invoice Section -->
+            <Label Text="Invoices" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <VerticalStackLayout x:Name="InvoicesList" Spacing="10">
+                <!-- Placeholder for dynamic invoices -->
+            </VerticalStackLayout>
+
+            <!-- Quick Action Buttons -->
+            <HorizontalStackLayout Spacing="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                <Button Text="Add Timesheets" BackgroundColor="DodgerBlue" TextColor="White" Clicked="AddTimesheets_Clicked"/>
+                <Button Text="Generate Invoice" BackgroundColor="DodgerBlue" TextColor="White" Clicked="GenerateInvoice_Clicked"/>
+           
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

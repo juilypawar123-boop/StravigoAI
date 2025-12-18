@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.MeetingsCalenderPage"
+             Title="Meeting Calender">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        
+        <Button Text="Add Meeting" Clicked="OnAddMeetingClicked" BackgroundColor="DodgerBlue" TextColor="White" HorizontalOptions="Center" Margin="0,20,0,20"/>
+
+       
+        <Label x:Name="MonthLabel" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,20"/>
+
+        
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Margin="0,20,0,20">
+            <Button Text="Previous" Clicked="OnPreviousMonthClicked"/>
+            <Button Text="Next" Clicked="OnNextMonthClicked"/>
+        </HorizontalStackLayout>
+
+        
+        <CollectionView x:Name="CalendarCollectionView" SelectionMode="None" VerticalOptions="Center" Margin="80,30,80,30">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="7" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15" Margin="10,20,10,20" BorderColor="LightGray" CornerRadius="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding DayNumber}" HorizontalOptions="Center"/>
+                            <Label Text="{Binding MeetingSummary}" FontSize="10" TextColor="Blue" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

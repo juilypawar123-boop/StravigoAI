@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.TemplatesPage"
+             Title="Templates"
+             BackgroundColor="White">
+
+    <Grid ColumnDefinitions="3*,3*" Padding="10" RowSpacing="0">
+
+        <!-- Left Column: Category Buttons -->
+        <VerticalStackLayout Grid.Column="0" Spacing="20" Padding="50">
+            <Label Text="Templates Library" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="#2A2A3F"/>
+
+            <Button Text="Project Plan" 
+                    VerticalOptions="FillAndExpand" 
+                    HorizontalOptions="Fill"
+                    Clicked="OnProjectPlanClicked"
+                    Margin="20,30,20,20"/>
+
+            <Button Text="Budget Tracker" 
+                    VerticalOptions="FillAndExpand" 
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnBudgetTrackerClicked"
+                    Margin="20,30,20,20"/>
+
+            <Button Text="Monthly Report" 
+                    VerticalOptions="FillAndExpand" 
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnMonthlyReportClicked"
+                    Margin="20,30,20,20"/>
+
+            <Button Text="KPI Dashboard" 
+                    VerticalOptions="FillAndExpand" 
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnKPIDashboardClicked"
+                    Margin="20,30,20,20"/>
+        </VerticalStackLayout>
+
+        <!-- Right Column: Templates Sidebar -->
+        <ScrollView Grid.Column="1" BackgroundColor="YellowGreen">
+            <VerticalStackLayout x:Name="SidebarTemplates" Spacing="15" Padding="10" VerticalOptions="CenterAndExpand" Margin="20,10,300,10"/>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

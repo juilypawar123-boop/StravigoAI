@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.TeamMemberFormPage"
+             Title="Add Team Member"
+             BackgroundColor="#F4F4F4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="15">
+
+            <Label Text="Add New Team Member" FontSize="24" FontAttributes="Bold" TextColor="#1A1A2E"/>
+
+            <Entry x:Name="NameEntry" Placeholder="Full Name" HeightRequest="40"/>
+            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" HeightRequest="40"/>
+            <Entry x:Name="PhoneEntry" Placeholder="Phone" Keyboard="Telephone" HeightRequest="40"/>
+
+            <Picker x:Name="RolePicker" Title="Select Role" HeightRequest="40"/>
+            <Picker x:Name="ProjectPicker" Title="Assign Projects" HeightRequest="40"/>
+
+            <Button Text="Add Member" BackgroundColor="#43A047" TextColor="White" CornerRadius="12" Clicked="AddMember_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

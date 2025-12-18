@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.RequestMeetingFormPage"
+             Title="Request Meeting"
+             BackgroundColor="White"
+             Padding="20">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15">
+
+            <Label Text="Request a Meeting" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="#2A2A3F"
+                   HorizontalOptions="Center" />
+
+            
+            <Entry x:Name="SubjectEntry" Placeholder="Meeting Subject" />
+
+            
+            <DatePicker x:Name="MeetingDatePicker"/>
+
+            
+            <TimePicker x:Name="MeetingTimePicker" />
+
+            
+            <Picker x:Name="DurationPicker" Title="Select Duration">
+                <Picker.Items>
+                    <x:String>30 min</x:String>
+                    <x:String>1 hour</x:String>
+                    <x:String>1.5 hours</x:String>
+                    <x:String>2 hours</x:String>
+                </Picker.Items>
+            </Picker>
+
+            
+            <Picker x:Name="TypePicker" Title="Select Meeting Type">
+                <Picker.Items>
+                    <x:String>Video Call</x:String>
+                    <x:String>Audio Call</x:String>
+                    <x:String>In-person</x:String>
+                </Picker.Items>
+            </Picker>
+
+           
+            <Editor x:Name="NotesEditor" Placeholder="Additional Notes" AutoSize="TextChanges" HeightRequest="100" />
+
+            <!-- Submit Button -->
+            <Button Text="Submit Request" 
+                    BackgroundColor="#2A64D2" 
+                    TextColor="White"
+                    Clicked="OnSubmitClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

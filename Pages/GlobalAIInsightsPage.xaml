@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.GlobalAIInsightsPage"
+             Title="Global AI Insights">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label x:Name="RoleInfoLabel" FontAttributes="Bold" FontSize="16"/>
+            <Label x:Name="RiskAlertsLabel" FontSize="14" TextColor="DarkRed"/>
+            <Label x:Name="OpportunitiesLabel" FontSize="14" TextColor="DarkGreen"/>
+
+            <Label Text="Project Insights" FontSize="18" FontAttributes="Bold" Margin="0,8,0,0"/>
+            <VerticalStackLayout x:Name="ProjectInsightsList" Spacing="10"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

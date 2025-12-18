@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.MainPage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <Image Source="stravigo_background.png"
+                   HeightRequest="185"
+                   Aspect="AspectFit"
+                   SemanticProperties.Description="StravigoAI logo" />
+
+            <Label Text="StravigoAI"
+                   Style="{StaticResource Headline}"
+                   HorizontalOptions="Center"
+                   SemanticProperties.HeadingLevel="Level1"
+                   TextColor="DarkBlue"
+                   FontAttributes="Bold"/>
+
+            <Label Text="Welcome to StravigoAI — Your AI-powered consultancy co-pilot." Margin="0,50"
+                   Style="{StaticResource SubHeadline}"
+                   HorizontalOptions="Center"
+                   SemanticProperties.HeadingLevel="Level2"
+                   TextColor="Black"/>
+
+            <Label Text="Smart insights | Faster decisions | All in one place" Margin="0.50"
+                   HorizontalOptions="Center"
+                   FontSize="18" 
+                   Opacity="0.75"
+                   TextColor="black"/>
+
+            <Button x:Name="LoginBtn"
+                    Text="Activate Consulting Insights" 
+                    FontSize="18" 
+                    FontAttributes="Bold" 
+                    Margin="500,80,500,0"
+                    HorizontalOptions="Fill"
+                    CornerRadius="12"
+                    Clicked="OnLoginClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

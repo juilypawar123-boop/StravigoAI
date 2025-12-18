@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StravigoAI.Pages.TeamMembersPage"
+             Title="Team Members"
+             BackgroundColor="#F4F4F4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="15">
+
+            <!-- Header / Page Info -->
+            <Label Text="Team Members" FontSize="28" FontAttributes="Bold" TextColor="#1A1A2E"/>
+            <Label Text="View all team members and their assigned projects" FontSize="16" TextColor="#555"/>
+
+            <!-- Stats / KPIs -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="#3949AB" CornerRadius="12" Padding="15" HorizontalOptions="FillAndExpand">
+                    <VerticalStackLayout>
+                        <Label Text="Total Members" FontSize="14" TextColor="White"/>
+                        <Label x:Name="TotalMembersLabel" Text="0" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="#43A047" CornerRadius="12" Padding="15" HorizontalOptions="FillAndExpand">
+                    <VerticalStackLayout>
+                        <Label Text="Active Projects" FontSize="14" TextColor="White"/>
+                        <Label x:Name="TotalProjectsLabel" Text="0" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Search / Filter Section -->
+            <Entry x:Name="SearchEntry" Placeholder="Search by name..." HeightRequest="40"/>
+            <HorizontalStackLayout Spacing="10">
+                <Picker x:Name="RolePicker" Title="Filter by Role" HorizontalOptions="FillAndExpand"/>
+                <Picker x:Name="ProjectPicker" Title="Filter by Project" HorizontalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
+
+            <!-- Team Members List -->
+            <VerticalStackLayout x:Name="TeamMembersList" Spacing="15"/>
+
+            <!-- Add New Team Member -->
+            <Button Text="Add Team Member" BackgroundColor="#FFA726" TextColor="White" CornerRadius="12" Clicked="AddTeamMember_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
